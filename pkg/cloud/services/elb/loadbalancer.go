@@ -142,13 +142,13 @@ func (s *Service) getAPIServerClassicELBSpec() *v1alpha2.ClassicELB {
 		Listeners: []*v1alpha2.ClassicELBListener{
 			{
 				Protocol:         v1alpha2.ClassicELBProtocolTCP,
-				Port:             6443,
+				Port:             443,
 				InstanceProtocol: v1alpha2.ClassicELBProtocolTCP,
-				InstancePort:     6443,
+				InstancePort:     443,
 			},
 		},
 		HealthCheck: &v1alpha2.ClassicELBHealthCheck{
-			Target:             fmt.Sprintf("%v:%d", v1alpha2.ClassicELBProtocolSSL, 6443),
+			Target:             fmt.Sprintf("%v:%d", v1alpha2.ClassicELBProtocolSSL, 443),
 			Interval:           10 * time.Second,
 			Timeout:            5 * time.Second,
 			HealthyThreshold:   5,
